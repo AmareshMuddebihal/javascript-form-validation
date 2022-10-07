@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>  
+
+        function validateform(){  
+        var uid=document.myform.uid.value;  
+        var pwd=document.myform.pwd.value;  
+        var uname=document.myform.uname.value;
+      
+
+        if (uid==null || uid==""){  
+          alert("ID not entered");  
+          return false;  
+        }
+        else if(pwd==null|| pwd=="")
+        alert("Password not entered");
+        else if(pwd.length<6){  
+          alert("Password must be at least 6 characters long.");  
+          return false;  
+          }  
+          else if(uname.length<5){
+            alert("Username is incorrect");
+            return false;
+          }
+          else{
+            confirm("Form OK");
+          return true;
+        }  
+    }
+
+    </script>  
+
+</head>
+<body>
+    <form name="myform" method="post" onsubmit="return validateform()">
+    <table border="0" >
+        <tr>
+            <th colspan="2">Registration Form</th>
+        </tr>
+        <tr>
+        <td><label for="Userid">Userid:</label></td>
+        <td><input type="Userid" name="uid"><br></td>
+    </tr>
+    <tr>
+        <td><label for="password">Password:</label></td>
+        <td><input type="password" name="pwd"><br></td>
+    </tr>
+    <tr>
+        <td><label for="Username">Username:</label></td>
+        <td><input type="Username" name="uname"><br></td>
+    </tr>
+    <tr>
+        <td><label for="coun">Select country:</label></td>
+        <td><select>
+            <option value="c1" placeholder="Select">India</option>
+            <option value="c2">UK</option>
+            <option value="c3">USA</option>
+            <option value="c4">other</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td><label for="email">Email:</label></td>
+        <td><input type="type" name=e1></td>
+    </tr>
+    <tr>
+        <td><label for="address">Address:</label></td>
+        <td><input type="text" name="a1"></td>
+    </tr>
+    <tr>
+        <td><label for="zipcode">Zipcode:</label></td>
+      <td><input type="zipcode" name="z1"></td>
+    </tr>
+    <tr>
+        <td><label for="gen">Gender:</label></td>
+        <td><input type="radio" name="r1" value="male">Male
+        <input type="radio" name="r1" value="female">Female</td>
+
+    </tr>
+    <tr>
+        <td><label for="Comments">Comments:</label></td>
+        <td><textarea id="comments" name="C1" rows="6" cols="21" ></textarea></td>
+    </tr>
+    <tr>
+        <td><input type="submit" name="s1"></td>
+    </tr>
+    </form>
+</body>
+</html>

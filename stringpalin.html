@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function palin(str)
+{
+        var a=0;
+        var len=0;
+        for(i=0;str[i]!=null;i++){       //loop to find length
+            len++; 
+        
+        }
+        for(i=0;i<len/2;i++)                  //loop to comparing string
+        {
+            
+            if(str[i]!=str[len-i-1])
+            {a=1;
+            break;}
+        }                                            //str checlking if palindrome or not
+        if(a==0)
+            document.write("String is palindrome\n");
+         else
+        document.write("String is not palindrome\n");
+        document.write("String length: "+len); //str length printing
+}
+</script>
+</head>
+<body>
+    <script>
+        s=prompt("Enter the string to be checked:");
+        palin(s);
+    </script>
+</body>
+</html>
