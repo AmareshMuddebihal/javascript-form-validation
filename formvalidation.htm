@@ -122,3 +122,168 @@ Method1
 </body>
 
 </html>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">  
+
+        function vafo()
+        {  
+            var as="";
+        var name=document.myform.name.value;  
+        var pwd=document.myform.pwd.value;  
+        var age=document.myform.age;
+        var gender=document.myform.gender;
+        var email=document.myform.email.value;
+        var check2=document.myform.check2;
+        var text1=document.myform.text1.value;
+   
+        if (name==""|| name.length<=6){  
+          as="ID must be minimum of 6 characters\n";  
+        }
+        
+        if(pwd.length<=6)
+        as=as+"Enter atleast 6 numbers in password\n";
+      
+        if(age.selectedIndex<=0)
+        as+="Invalid age selection\n";
+       
+        if ((gender.selectedIndex < 0)||(gender.selectedIndex==0))
+        {
+            as+="Invalid gender selection";
+        }
+        else{
+            var radioselected=false;
+            for(i=0;i<gender.length;i++)
+            {
+                if(gender[i].checked)
+                radioselected=true;
+            }
+            if(!radioselected)
+            as+="Select your gender\n";
+        }
+        
+         if(email=="")
+        as+="Please enter your email address\n";
+        else{
+            var checkemail='@.';
+            var checkstr=document.myform.email.value;
+            var emailvalid=false;
+            var emailat=false;
+            var emailperiod=false;
+            for(i=0;i<checkstr.length;i++){
+                ch=checkstr.charAt(i);
+                for(j=0;j<checkemail.length;j++){
+                    if(ch==checkemail.charAt(j)&&ch=="@")
+                    emailat=true;
+                    if(ch==checkemail.charAt(j)&&ch==".")
+                    emailperiod=true;
+                    if(emailat && emailperiod) break;
+                    if(j==checkemail.length)break;
+
+                }
+            }
+            if(!(emailat && emailperiod))
+            as+="Ivalid Emailid\n";
+        }
+        
+        var checkselect=false;
+        for(i=0;i<check2.length;i++){
+            if(document.myform.check2[i].checked)
+            checkselect=true;
+        }
+        if(!checkselect)
+        as+="Please select the places you like the most\n";
+        
+        if(text1.length<20){
+            as=as+"Enter atleast 20 characters in comment\n";
+        }
+        
+        if(as.length>0)
+        alert(as);
+        else
+        alert("Thankyou \t Form successfully filled");
+        
+}
+        
+    </script>  
+
+</head>
+<body>
+    <center><h1 >Personal detils</h1></center><br>
+    <form name="myform" action="#" method="get">
+    <table border="0" >
+        
+    <tr>
+        <td><label for="Username">Username:</label></td>
+        <td><input type="Username" name="name"><br></td>
+    </tr>
+    <tr>
+        <td><label for="password">Password:</label></td>
+        <td><input type="password" name="pwd"><br></td>
+    </tr> <tr>
+        <td><label for="age">Select age:</label></td>
+        <td><select name="age">
+            <option >0</option>
+            <option >20</option>
+            <option >21</option>
+            <option >22</option>
+        </select></td>
+    </tr>
+      
+    <tr>
+        <td>
+        <label for="gender">Gender:</label>
+        </td>
+       <td>
+        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="female">Female
+    </td></tr>
+
+    
+    <tr>
+        <td><label for="email">Email:</label></td>
+        <td><input type="text" name=email></td>
+    </tr>
+  <tr>
+    <td>
+        <label for="places">Favorite places:</label></td>
+    <td>
+    <input type="checkbox" name="check2" value="chennai">Chennai
+    <input type="checkbox" name="check2" value="Mumbai">Mumbai
+    <input type="checkbox" name="check2" value="Banglore">Banglore
+    <input type="checkbox" name="check2" value="Delhi">Delhi
+</td></tr>
+   
+    
+    <tr>
+        <td colspan="2"><textarea name="text1" rows="10" cols="40" placeholder="Drop your comments"></textarea></td>
+    </tr> 
+    <tr>
+        <td colspan="2"><input type="button" value="Enter" onclick=vafo();></td>
+    </tr>
+    </table>
+    </form>
+</body>
+</html>
